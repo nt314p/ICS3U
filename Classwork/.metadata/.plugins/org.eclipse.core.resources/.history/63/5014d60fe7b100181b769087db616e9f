@@ -1,0 +1,20 @@
+package com.bayviewglen.dayone;
+
+public class ExampleOne {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// comments are for the programmer/developer
+		
+		/*
+		 * Multi line comments
+		 * 
+		 * Don't put comments inside comments
+		 */
+		
+		System.out.print("potats1");
+		System.out.println("potats2");
+		System.out.println("potats3");
+		System.out.println("potats4");
+	}
+}

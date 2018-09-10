@@ -1,0 +1,12 @@
+package com.bayviewglen.daytwo;
+
+public class HomeworkSix {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		double a = 2, b = 17, c = 4;
+		
+		System.out.println("\u00B1");
+	}
+
+}

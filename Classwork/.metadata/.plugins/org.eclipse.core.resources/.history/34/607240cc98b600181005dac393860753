@@ -1,0 +1,23 @@
+package com.bayviewglen.daythree;
+
+public class ExampleOne {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// integer division
+		int x = 7;
+		int y = 3;
+		
+		System.out.println(x/y); // outputs 2 because int/int is an int
+		System.out.println(x%y); // outputs 1 because remainder of 7/3 is 1
+		
+		if (x%2==0) {
+			System.out.println(x + " is EVEN");
+		} else {
+			System.out.println(x + " is ODD");
+		}
+		
+		
+	}
+
+}

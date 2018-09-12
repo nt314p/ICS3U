@@ -1,0 +1,27 @@
+package com.bayviewglen.daythree;
+
+public class BayviewGlenPools {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// set these
+		double length = 20;
+		double width = 10;
+		double deepDepth = 7;
+		double shallowTransition = 5;
+		double shallowDepth = 4;
+		double shallowLength = 12;
+		double linerPrice = 1.2;
+		
+		double transitionY = deepDepth - shallowDepth;
+		
+		// using pythag theorem
+		double transitionX = Math.sqrt(Math.pow(shallowTransition, 2) - Math.pow(transitionY, 2));
+		double deepLength = length - transitionX;
+		
+		double linerSides = length * deepDepth - ()
+		
+		
+	}
+
+}

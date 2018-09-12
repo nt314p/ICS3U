@@ -1,0 +1,15 @@
+package com.bayviewglen.daythree;
+
+public class ExampleTwo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int num = 21932;
+		
+		// get sum of individual digits
+		
+		int digit1 = num/10000;
+		int digit5 = num%10;
+	}
+
+}

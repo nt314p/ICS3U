@@ -1,0 +1,17 @@
+package com.bayviewglen.dayfour;
+
+public class ExampleOne {
+	
+	/* 
+	 * Declaring a scanner to read input from the keyboard.
+	 * 
+	 * reading integer data
+	 * 
+	 * prompt the user for three different integers and display the average
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+	}
+
+}

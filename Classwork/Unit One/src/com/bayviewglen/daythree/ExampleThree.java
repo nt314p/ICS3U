@@ -12,6 +12,7 @@ public class ExampleThree {
 		int radius = 3;
 		double areaOfCircle = Math.PI * 2 * radius; // logic error (should be PI*r^2)
 		
+		System.out.println("LOGICAL ERROR: area of circle is not actually " + areaOfCircle);
 		
 	}
 	

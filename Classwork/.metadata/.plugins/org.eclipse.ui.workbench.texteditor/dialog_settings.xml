@@ -2,23 +2,51 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
-		<item value="false" key="casesensitive"/>
+		<item value="= String.format" key="selection"/>
+		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="\r"/>
+			<item value="System.out.printf"/>
+			<item value="60"/>
+			<item value="member&apos;s"/>
+			<item value="nameIn"/>
+			<item value="minutesM"/>
+			<item value="secondsM"/>
+			<item value="memberFive"/>
+			<item value="memberFour"/>
+			<item value="memberThree"/>
+			<item value="memberTwo"/>
+			<item value="memberOne"/>
+			<item value="colonM3"/>
+			<item value="strM3"/>
+			<item value="Finish"/>
+			<item value="Final"/>
 		</list>
 		<list key="replacehistory">
-			<item value=""/>
+			<item value="= String.format"/>
+			<item value="SECS_IN_MINUTE"/>
+			<item value="&quot; + name + &quot;&apos;s"/>
+			<item value="reader"/>
+			<item value="minM"/>
+			<item value="secM"/>
+			<item value="p5"/>
+			<item value="p4"/>
+			<item value="p3"/>
+			<item value="p2"/>
+			<item value="p1"/>
+			<item value="colon3"/>
+			<item value="str3"/>
+			<item value="M3"/>
+			<item value="3"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="385" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="523" key="DIALOG_HEIGHT"/>
-		<item value="899" key="DIALOG_X_ORIGIN"/>
-		<item value="383" key="DIALOG_Y_ORIGIN"/>
+		<item value="1387" key="DIALOG_X_ORIGIN"/>
+		<item value="203" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

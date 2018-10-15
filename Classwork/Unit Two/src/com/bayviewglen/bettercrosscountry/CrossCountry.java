@@ -17,8 +17,7 @@ public class CrossCountry {
 		}
 
 		System.out.println("\n\n_______________________________________________________________________________");
-		System.out.printf("| %-20s| %-12s| %-12s| %-12s| %-12s|\n",
-				"Participant", "Split One", "Split Two", "Split Three", "Finish"); // heading
+		System.out.println("| Participant         | Split One   | Split Two   | Split Three | Finish      |"); // heading
 		for (int i = 0; i < members.length; i++) {
 			members[i].printTableRow();
 		}

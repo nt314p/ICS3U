@@ -2,44 +2,44 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="= String.format" key="selection"/>
+		<item value="%3d" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="System.out.printf"/>
-			<item value="60"/>
-			<item value="member&apos;s"/>
-			<item value="nameIn"/>
-			<item value="minutesM"/>
-			<item value="secondsM"/>
-			<item value="memberFive"/>
-			<item value="memberFour"/>
-			<item value="memberThree"/>
-			<item value="memberTwo"/>
-			<item value="memberOne"/>
-			<item value="colonM3"/>
-			<item value="strM3"/>
-			<item value="Finish"/>
-			<item value="Final"/>
+			<item value="%03d"/>
+			<item value="// finding time to mile two to finish"/>
+			<item value="// finding mile one to mile two time"/>
+			<item value="S3);"/>
+			<item value="S2);"/>
+			<item value="S1);"/>
+			<item value="reader"/>
+			<item value=" Time: "/>
+			<item value="printing split"/>
+			<item value="%02d"/>
+			<item value="Member Name:"/>
+			<item value="Member:  "/>
+			<item value="Split Times for"/>
+			<item value=" Time: &quot;"/>
+			<item value=" Time:   &quot;"/>
 		</list>
 		<list key="replacehistory">
-			<item value="= String.format"/>
-			<item value="SECS_IN_MINUTE"/>
-			<item value="&quot; + name + &quot;&apos;s"/>
-			<item value="reader"/>
-			<item value="minM"/>
-			<item value="secM"/>
-			<item value="p5"/>
-			<item value="p4"/>
-			<item value="p3"/>
-			<item value="p2"/>
-			<item value="p1"/>
-			<item value="colon3"/>
-			<item value="str3"/>
-			<item value="M3"/>
-			<item value="3"/>
+			<item value="%3d"/>
+			<item value="%-3d"/>
+			<item value="// finding time to mile two to finish (split three)"/>
+			<item value="// finding mile one to mile two time (split two)"/>
+			<item value="S3); // split three"/>
+			<item value="S2); // split two"/>
+			<item value="S1); // split one"/>
+			<item value="in"/>
+			<item value=": "/>
+			<item value="formatting split"/>
+			<item value="%03d"/>
+			<item value="Member Name: "/>
+			<item value="Member Name:"/>
+			<item value="Member"/>
+			<item value=": &quot;"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

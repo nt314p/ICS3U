@@ -42,12 +42,4 @@ public class Split {
 		return seconds;
 	}
 
-	public void setMinutes(int minutes) {
-		this.minutes = minutes;
-	}
-
-	public void setSeconds(double seconds) {
-		this.seconds = seconds;
-	}
-
 }

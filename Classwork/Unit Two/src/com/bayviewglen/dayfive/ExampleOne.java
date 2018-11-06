@@ -32,6 +32,7 @@ public class ExampleOne {
 		mystery(x);
 		System.out.println("4: " + x);
 		
+		@SuppressWarnings("deprecation")
 		Integer i = new Integer(10);
 		System.out.println("1: " + i);
 		mystery3(i);

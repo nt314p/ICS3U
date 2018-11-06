@@ -21,6 +21,8 @@ public class BetterDiceGame {
 			playerTwo.takeTurn();
 			playerOne.displayScore();
 			playerTwo.displayScore();
+			
+			System.out.println("------------------------------------");
 
 			if (playerOne.getScore() >= GOAL || playerTwo.getScore() >= GOAL) {
 				gameOver = true;

@@ -2493,3 +2493,2682 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2018-11-14 10:55:25.037
 !MESSAGE 
+!SESSION 2018-11-14 14:37:29.691 -----------------------------------------------
+eclipse.buildId=4.9.0.I20180906-0745
+java.version=1.8.0_192
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-11-14 14:38:11.982
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\ntong'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-11-14 14:38:13.280
+!MESSAGE 
+!SESSION 2018-11-15 14:20:05.313 -----------------------------------------------
+eclipse.buildId=4.9.0.I20180906-0745
+java.version=1.8.0_192
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-11-15 14:20:34.283
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\ntong'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-11-15 14:20:36.379
+!MESSAGE 
+!SESSION 2018-11-16 10:20:30.666 -----------------------------------------------
+eclipse.buildId=4.9.0.I20180906-0745
+java.version=1.8.0_192
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-11-16 10:22:06.608
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\ntong'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2018-11-16 10:22:07.609
+!MESSAGE 
+
+!ENTRY org.eclipse.jdt.core 4 4 2018-11-16 10:33:48.754
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package com.bayviewglen.threecardpoker;
+
+import java.util.ArrayList;
+
+public class ThreeCardPoker {
+	public static final int NUM_CARDS = 52;
+	public static final int MIN_ANTE = 50;
+	public static final int MAX_ANTE = 100;
+	public static final int MIN_PAIR_PLUS = 50;
+	public static final int MAX_PAIR_PLUS = 100;
+	public static final int INITIAL_WALLET = 1000;
+
+	static ArrayList<Card> deck = new ArrayList<Card>(NUM_CARDS);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		boolean gameOver = false;
+		
+		shuffleDeck(deck);
+		
+		displayDeck(deck);
+
+		Player p = new Player("HEY", INITIAL_WALLET);
+		
+		while (!gameOver) {
+			if (p.getWallet() < MIN_ANTE) {
+				System.out.println("You don't have enough money to make an ante wager!");
+				gameOver = true;
+			}
+			
+		}
+		
+		
+		for (int i = 0; i < 3; i++) {
+			p.getHand().drawCard(deck);
+			System.out.println("Drew a: " + p.getHand().getCards()[i].getCard());
+		}
+		
+		displayDeck(deck);
+		
+		/*
+		 * Check if wallet is less than min bet then stop the game
+		 * 
+		 * Set ante
+		 * 
+		 * Ask for pair plus 
+		 * 
+		 * Get the pair plus bet if they want it
+		 * 
+		 * 
+		 */
+
+	}
+	
+	public static void displayEndStats(p)
+	
+	public static void displayDeck(ArrayList<Card> deck) {
+		for (int i = 0; i < deck.size(); i++) {
+			System.out.println(deck.get(i).getCard());
+		}
+	}
+
+	public static void shuffleDeck(ArrayList<Card> deck) {
+		int[] numDeck = new int[NUM_CARDS]; // new integer array
+
+		for (int i = 0; i < NUM_CARDS; i++) { // filling integer array with numbers from 0-51
+			numDeck[i] = i;
+		}
+
+		for (int i = 0; i < 100; i++) { // mixing array up
+			int index1 = (int) (Math.random() * NUM_CARDS);
+			int index2 = (int) (Math.random() * NUM_CARDS);
+			int temp = numDeck[index1];
+			numDeck[index1] = numDeck[index2];
+			numDeck[index2] = temp;
+		}
+
+		for (int i = 0; i < NUM_CARDS; i++) { // adding cards to the deck based on the integer array
+			deck.add(i, new Card(numDeck[i]));
+		}
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2018-11-16 10:33:48.818
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2018-11-16 10:33:48.822
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.core 4 4 2018-11-16 10:33:51.864
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package com.bayviewglen.threecardpoker;
+
+import java.util.ArrayList;
+
+public class ThreeCardPoker {
+	public static final int NUM_CARDS = 52;
+	public static final int MIN_ANTE = 50;
+	public static final int MAX_ANTE = 100;
+	public static final int MIN_PAIR_PLUS = 50;
+	public static final int MAX_PAIR_PLUS = 100;
+	public static final int INITIAL_WALLET = 1000;
+
+	static ArrayList<Card> deck = new ArrayList<Card>(NUM_CARDS);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		boolean gameOver = false;
+		
+		shuffleDeck(deck);
+		
+		displayDeck(deck);
+
+		Player p = new Player("HEY", INITIAL_WALLET);
+		
+		while (!gameOver) {
+			if (p.getWallet() < MIN_ANTE) {
+				System.out.println("You don't have enough money to make an ante wager!");
+				gameOver = true;
+			}
+			
+		}
+		
+		
+		for (int i = 0; i < 3; i++) {
+			p.getHand().drawCard(deck);
+			System.out.println("Drew a: " + p.getHand().getCards()[i].getCard());
+		}
+		
+		displayDeck(deck);
+		
+		/*
+		 * Check if wallet is less than min bet then stop the game
+		 * 
+		 * Set ante
+		 * 
+		 * Ask for pair plus 
+		 * 
+		 * Get the pair plus bet if they want it
+		 * 
+		 * 
+		 */
+
+	}
+	
+	public static void displayEndStats(Player p, )
+	
+	public static void displayDeck(ArrayList<Card> deck) {
+		for (int i = 0; i < deck.size(); i++) {
+			System.out.println(deck.get(i).getCard());
+		}
+	}
+
+	public static void shuffleDeck(ArrayList<Card> deck) {
+		int[] numDeck = new int[NUM_CARDS]; // new integer array
+
+		for (int i = 0; i < NUM_CARDS; i++) { // filling integer array with numbers from 0-51
+			numDeck[i] = i;
+		}
+
+		for (int i = 0; i < 100; i++) { // mixing array up
+			int index1 = (int) (Math.random() * NUM_CARDS);
+			int index2 = (int) (Math.random() * NUM_CARDS);
+			int temp = numDeck[index1];
+			numDeck[index1] = numDeck[index2];
+			numDeck[index2] = temp;
+		}
+
+		for (int i = 0; i < NUM_CARDS; i++) { // adding cards to the deck based on the integer array
+			deck.add(i, new Card(numDeck[i]));
+		}
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2018-11-16 10:33:51.868
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2018-11-16 10:33:51.871
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1006 2018-11-16 10:37:08.391
+!MESSAGE Unknown Host: http://download.eclipse.org/releases/2018-09/compositeContent.xml
+!STACK 0
+java.net.UnknownHostException: download.eclipse.org
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:263)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:162)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:326)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:263)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1006 2018-11-16 10:37:11.328
+!MESSAGE Unknown Host: http://rherrmann.github.io/com.codeaffine.archive/repository/content.xml
+!STACK 0
+java.net.UnknownHostException: rherrmann.github.io
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:263)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:162)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:326)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:263)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1006 2018-11-16 10:37:14.050
+!MESSAGE Unknown Host: http://download.eclipse.org/releases/oxygen/compositeContent.xml
+!STACK 0
+java.net.UnknownHostException: download.eclipse.org
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:263)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:162)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:326)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:263)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2018-11-16 10:37:14.082
+!MESSAGE Connection to http://download.eclipse.org/releases/oxygen/201804111000/content.xml.xz failed on download.eclipse.org. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: download.eclipse.org
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:263)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:162)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:134)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1084)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1075)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1006 2018-11-16 10:37:14.285
+!MESSAGE Unknown Host: http://download.eclipse.org/releases/oxygen/201804111000/content.xml.xz
+!STACK 0
+java.net.UnknownHostException: download.eclipse.org
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:263)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:162)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:134)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1084)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1075)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1006 2018-11-16 10:37:16.363
+!MESSAGE Unknown Host: http://download.eclipse.org/eclipse/updates/4.8/compositeContent.xml
+!STACK 0
+java.net.UnknownHostException: download.eclipse.org
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:263)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:162)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:326)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:263)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1006 2018-11-16 10:37:16.394
+!MESSAGE Unknown Host: http://download.eclipse.org/oomph/updates/milestone/latest/compositeContent.xml
+!STACK 0
+java.net.UnknownHostException: download.eclipse.org
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:263)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:162)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:326)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:263)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1006 2018-11-16 10:37:16.410
+!MESSAGE Unknown Host: http://download.eclipse.org/eclipse/updates/4.7/compositeContent.xml
+!STACK 0
+java.net.UnknownHostException: download.eclipse.org
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:263)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:162)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:326)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:263)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1006 2018-11-16 10:37:16.425
+!MESSAGE Unknown Host: http://download.eclipse.org/eclipse/updates/4.9/compositeContent.xml
+!STACK 0
+java.net.UnknownHostException: download.eclipse.org
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:263)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:162)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:326)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:263)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1006 2018-11-16 10:37:16.441
+!MESSAGE Unknown Host: http://download.eclipse.org/releases/photon/compositeContent.xml
+!STACK 0
+java.net.UnknownHostException: download.eclipse.org
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:263)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:162)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:326)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:263)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core 4 4 2018-11-16 10:58:31.196
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package com.bayviewglen.threecardpoker;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ThreeCardPoker {
+	public static final int NUM_CARDS = 52;
+	public static final int MIN_ANTE = 50;
+	public static final int MAX_ANTE = 100;
+	public static final int MIN_PAIR_PLUS = 50;
+	public static final int MAX_PAIR_PLUS = 100;
+	public static final int INITIAL_WALLET = 1000;
+	static Scanner in = new Scanner(System.in);
+
+	static ArrayList<Card> deck = new ArrayList<Card>(NUM_CARDS);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		boolean gameOver = false;
+
+		shuffleDeck(deck);
+
+		displayDeck(deck);
+
+		Player p = new Player("HEY", 10009);
+
+		while (!gameOver) {
+			if (!playerCanPlay(p)) // checking if the player can play
+				break;
+			
+		
+
+		}
+
+//		for (int i = 0; i < 3; i++) {
+//			p.getHand().drawCard(deck);
+//			System.out.println("Drew a: " + p.getHand().getCards()[i].getCard());
+//		}
+
+		// displayDeck(deck);
+
+		displayEndStats(p);
+
+		/*
+		 * Check if wallet is less than min bet then stop the game
+		 * 
+		 * Set ante
+		 * 
+		 * Ask for pair plus
+		 * 
+		 * Get the pair plus bet if they want it
+		 * 
+		 * 
+		 */
+
+	}
+	
+	public static String getInput()
+
+	public static void displayEndStats(Player p) {
+		int currPlayerWallet = p.getWallet();
+		int diff = currPlayerWallet - INITIAL_WALLET;
+		String sign = Math.signum(diff) == 1.0 ? "+" : "-";
+		System.out.println("------Game Ended------");
+		System.out.printf("End wallet:   %7s\n", "$" + currPlayerWallet);
+		System.out.printf("Net earnings: %7s", sign + "$" + Math.abs(diff));
+	}
+
+	public static void displayDeck(ArrayList<Card> deck) {
+		for (int i = 0; i < deck.size(); i++) {
+			System.out.println(deck.get(i).getCard());
+		}
+	}
+
+	public static void shuffleDeck(ArrayList<Card> deck) {
+		int[] numDeck = new int[NUM_CARDS]; // new integer array
+
+		for (int i = 0; i < NUM_CARDS; i++) { // filling integer array with numbers from 0-51
+			numDeck[i] = i;
+		}
+
+		for (int i = 0; i < 100; i++) { // mixing array up
+			int index1 = (int) (Math.random() * NUM_CARDS);
+			int index2 = (int) (Math.random() * NUM_CARDS);
+			int temp = numDeck[index1];
+			numDeck[index1] = numDeck[index2];
+			numDeck[index2] = temp;
+		}
+
+		for (int i = 0; i < NUM_CARDS; i++) { // adding cards to the deck based on the integer array
+			deck.add(i, new Card(numDeck[i]));
+		}
+	}
+
+	public static boolean playerCanPlay(Player p) {
+		if (p.getWallet() < MIN_ANTE * 2 + MIN_PAIR_PLUS) {
+			System.out.println("Not enough money to meet wager minimums!");
+			return false;
+		}
+		return true;
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2018-11-16 10:58:31.196
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2018-11-16 10:58:31.196
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.core 4 4 2018-11-16 10:58:34.306
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package com.bayviewglen.threecardpoker;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ThreeCardPoker {
+	public static final int NUM_CARDS = 52;
+	public static final int MIN_ANTE = 50;
+	public static final int MAX_ANTE = 100;
+	public static final int MIN_PAIR_PLUS = 50;
+	public static final int MAX_PAIR_PLUS = 100;
+	public static final int INITIAL_WALLET = 1000;
+	static Scanner in = new Scanner(System.in);
+
+	static ArrayList<Card> deck = new ArrayList<Card>(NUM_CARDS);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		boolean gameOver = false;
+
+		shuffleDeck(deck);
+
+		displayDeck(deck);
+
+		Player p = new Player("HEY", 10009);
+
+		while (!gameOver) {
+			if (!playerCanPlay(p)) // checking if the player can play
+				break;
+			
+		
+
+		}
+
+//		for (int i = 0; i < 3; i++) {
+//			p.getHand().drawCard(deck);
+//			System.out.println("Drew a: " + p.getHand().getCards()[i].getCard());
+//		}
+
+		// displayDeck(deck);
+
+		displayEndStats(p);
+
+		/*
+		 * Check if wallet is less than min bet then stop the game
+		 * 
+		 * Set ante
+		 * 
+		 * Ask for pair plus
+		 * 
+		 * Get the pair plus bet if they want it
+		 * 
+		 * 
+		 */
+
+	}
+	
+	public static String getInput(String prompt, )
+
+	public static void displayEndStats(Player p) {
+		int currPlayerWallet = p.getWallet();
+		int diff = currPlayerWallet - INITIAL_WALLET;
+		String sign = Math.signum(diff) == 1.0 ? "+" : "-";
+		System.out.println("------Game Ended------");
+		System.out.printf("End wallet:   %7s\n", "$" + currPlayerWallet);
+		System.out.printf("Net earnings: %7s", sign + "$" + Math.abs(diff));
+	}
+
+	public static void displayDeck(ArrayList<Card> deck) {
+		for (int i = 0; i < deck.size(); i++) {
+			System.out.println(deck.get(i).getCard());
+		}
+	}
+
+	public static void shuffleDeck(ArrayList<Card> deck) {
+		int[] numDeck = new int[NUM_CARDS]; // new integer array
+
+		for (int i = 0; i < NUM_CARDS; i++) { // filling integer array with numbers from 0-51
+			numDeck[i] = i;
+		}
+
+		for (int i = 0; i < 100; i++) { // mixing array up
+			int index1 = (int) (Math.random() * NUM_CARDS);
+			int index2 = (int) (Math.random() * NUM_CARDS);
+			int temp = numDeck[index1];
+			numDeck[index1] = numDeck[index2];
+			numDeck[index2] = temp;
+		}
+
+		for (int i = 0; i < NUM_CARDS; i++) { // adding cards to the deck based on the integer array
+			deck.add(i, new Card(numDeck[i]));
+		}
+	}
+
+	public static boolean playerCanPlay(Player p) {
+		if (p.getWallet() < MIN_ANTE * 2 + MIN_PAIR_PLUS) {
+			System.out.println("Not enough money to meet wager minimums!");
+			return false;
+		}
+		return true;
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2018-11-16 10:58:34.306
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2018-11-16 10:58:34.306
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.core 4 4 2018-11-16 10:58:39.477
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package com.bayviewglen.threecardpoker;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ThreeCardPoker {
+	public static final int NUM_CARDS = 52;
+	public static final int MIN_ANTE = 50;
+	public static final int MAX_ANTE = 100;
+	public static final int MIN_PAIR_PLUS = 50;
+	public static final int MAX_PAIR_PLUS = 100;
+	public static final int INITIAL_WALLET = 1000;
+	static Scanner in = new Scanner(System.in);
+
+	static ArrayList<Card> deck = new ArrayList<Card>(NUM_CARDS);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		boolean gameOver = false;
+
+		shuffleDeck(deck);
+
+		displayDeck(deck);
+
+		Player p = new Player("HEY", 10009);
+
+		while (!gameOver) {
+			if (!playerCanPlay(p)) // checking if the player can play
+				break;
+			
+		
+
+		}
+
+//		for (int i = 0; i < 3; i++) {
+//			p.getHand().drawCard(deck);
+//			System.out.println("Drew a: " + p.getHand().getCards()[i].getCard());
+//		}
+
+		// displayDeck(deck);
+
+		displayEndStats(p);
+
+		/*
+		 * Check if wallet is less than min bet then stop the game
+		 * 
+		 * Set ante
+		 * 
+		 * Ask for pair plus
+		 * 
+		 * Get the pair plus bet if they want it
+		 * 
+		 * 
+		 */
+
+	}
+	
+	public static String getInput(String prompt, int min, int max)
+
+	public static void displayEndStats(Player p) {
+		int currPlayerWallet = p.getWallet();
+		int diff = currPlayerWallet - INITIAL_WALLET;
+		String sign = Math.signum(diff) == 1.0 ? "+" : "-";
+		System.out.println("------Game Ended------");
+		System.out.printf("End wallet:   %7s\n", "$" + currPlayerWallet);
+		System.out.printf("Net earnings: %7s", sign + "$" + Math.abs(diff));
+	}
+
+	public static void displayDeck(ArrayList<Card> deck) {
+		for (int i = 0; i < deck.size(); i++) {
+			System.out.println(deck.get(i).getCard());
+		}
+	}
+
+	public static void shuffleDeck(ArrayList<Card> deck) {
+		int[] numDeck = new int[NUM_CARDS]; // new integer array
+
+		for (int i = 0; i < NUM_CARDS; i++) { // filling integer array with numbers from 0-51
+			numDeck[i] = i;
+		}
+
+		for (int i = 0; i < 100; i++) { // mixing array up
+			int index1 = (int) (Math.random() * NUM_CARDS);
+			int index2 = (int) (Math.random() * NUM_CARDS);
+			int temp = numDeck[index1];
+			numDeck[index1] = numDeck[index2];
+			numDeck[index2] = temp;
+		}
+
+		for (int i = 0; i < NUM_CARDS; i++) { // adding cards to the deck based on the integer array
+			deck.add(i, new Card(numDeck[i]));
+		}
+	}
+
+	public static boolean playerCanPlay(Player p) {
+		if (p.getWallet() < MIN_ANTE * 2 + MIN_PAIR_PLUS) {
+			System.out.println("Not enough money to meet wager minimums!");
+			return false;
+		}
+		return true;
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2018-11-16 10:58:39.477
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2018-11-16 10:58:39.477
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.core 4 4 2018-11-16 10:58:46.711
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package com.bayviewglen.threecardpoker;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ThreeCardPoker {
+	public static final int NUM_CARDS = 52;
+	public static final int MIN_ANTE = 50;
+	public static final int MAX_ANTE = 100;
+	public static final int MIN_PAIR_PLUS = 50;
+	public static final int MAX_PAIR_PLUS = 100;
+	public static final int INITIAL_WALLET = 1000;
+	static Scanner in = new Scanner(System.in);
+
+	static ArrayList<Card> deck = new ArrayList<Card>(NUM_CARDS);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		boolean gameOver = false;
+
+		shuffleDeck(deck);
+
+		displayDeck(deck);
+
+		Player p = new Player("HEY", 10009);
+
+		while (!gameOver) {
+			if (!playerCanPlay(p)) // checking if the player can play
+				break;
+			
+		
+
+		}
+
+//		for (int i = 0; i < 3; i++) {
+//			p.getHand().drawCard(deck);
+//			System.out.println("Drew a: " + p.getHand().getCards()[i].getCard());
+//		}
+
+		// displayDeck(deck);
+
+		displayEndStats(p);
+
+		/*
+		 * Check if wallet is less than min bet then stop the game
+		 * 
+		 * Set ante
+		 * 
+		 * Ask for pair plus
+		 * 
+		 * Get the pair plus bet if they want it
+		 * 
+		 * 
+		 */
+
+	}
+	
+	public static int getInput(String prompt, int min, int max)
+
+	public static void displayEndStats(Player p) {
+		int currPlayerWallet = p.getWallet();
+		int diff = currPlayerWallet - INITIAL_WALLET;
+		String sign = Math.signum(diff) == 1.0 ? "+" : "-";
+		System.out.println("------Game Ended------");
+		System.out.printf("End wallet:   %7s\n", "$" + currPlayerWallet);
+		System.out.printf("Net earnings: %7s", sign + "$" + Math.abs(diff));
+	}
+
+	public static void displayDeck(ArrayList<Card> deck) {
+		for (int i = 0; i < deck.size(); i++) {
+			System.out.println(deck.get(i).getCard());
+		}
+	}
+
+	public static void shuffleDeck(ArrayList<Card> deck) {
+		int[] numDeck = new int[NUM_CARDS]; // new integer array
+
+		for (int i = 0; i < NUM_CARDS; i++) { // filling integer array with numbers from 0-51
+			numDeck[i] = i;
+		}
+
+		for (int i = 0; i < 100; i++) { // mixing array up
+			int index1 = (int) (Math.random() * NUM_CARDS);
+			int index2 = (int) (Math.random() * NUM_CARDS);
+			int temp = numDeck[index1];
+			numDeck[index1] = numDeck[index2];
+			numDeck[index2] = temp;
+		}
+
+		for (int i = 0; i < NUM_CARDS; i++) { // adding cards to the deck based on the integer array
+			deck.add(i, new Card(numDeck[i]));
+		}
+	}
+
+	public static boolean playerCanPlay(Player p) {
+		if (p.getWallet() < MIN_ANTE * 2 + MIN_PAIR_PLUS) {
+			System.out.println("Not enough money to meet wager minimums!");
+			return false;
+		}
+		return true;
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2018-11-16 10:58:46.711
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2018-11-16 10:58:46.711
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.core 4 4 2018-11-16 11:16:04.743
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package com.bayviewglen.threecardpoker;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ThreeCardPoker {
+	public static final int NUM_CARDS = 52;
+	public static final int MIN_ANTE = 50;
+	public static final int MAX_ANTE = 100;
+	public static final int MIN_PAIR_PLUS = 50;
+	public static final int MAX_PAIR_PLUS = 100;
+	public static final int INITIAL_WALLET = 1000;
+	static Scanner in = new Scanner(System.in);
+
+	static ArrayList<Card> deck = new ArrayList<Card>(NUM_CARDS);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		boolean gameOver = false;
+
+		shuffleDeck(deck);
+
+		displayDeck(deck);
+
+		Player p = new Player("HEY", 10009);
+
+		while (!gameOver) {
+			if (!playerCanPlay(p)) // checking if the player can play
+				break;
+			p.setAnteWager(getInput("Please enter the ante wager", MIN_ANTE, MAX_ANTE));
+			
+		}
+
+//		for (int i = 0; i < 3; i++) {
+//			p.getHand().drawCard(deck);
+//			System.out.println("Drew a: " + p.getHand().getCards()[i].getCard());
+//		}
+
+		// displayDeck(deck);
+
+		displayEndStats(p);
+
+		/*
+		 * Check if wallet is less than min bet then stop the game
+		 * 
+		 * Set ante
+		 * 
+		 * Ask for pair plus
+		 * 
+		 * Get the pair plus bet if they want it
+		 * 
+		 * 
+		 */
+
+	}
+	
+	public static boolean getInput(String prompt)
+
+	public static int getInput(String prompt, int min, int max) {
+		System.out.println();
+		System.out.printf("%s (%d - %d): ", prompt, min, max);
+		boolean validInput = false;
+		while (!validInput) {
+			try {
+				int input = Integer.parseInt(in.nextLine().toLowerCase());
+				if (input >= min && input <= max) {
+					return input;
+				}
+			} catch (Exception e) {
+				
+			}
+			System.out.println();
+			System.out.printf("Please enter number from %d to %d:", min, max);
+		}
+		return 0;
+	}
+
+	public static void displayEndStats(Player p) {
+		int currPlayerWallet = p.getWallet();
+		int diff = currPlayerWallet - INITIAL_WALLET;
+		String sign = Math.signum(diff) == 1.0 ? "+" : "-";
+		System.out.println("------Game Ended------");
+		System.out.printf("End wallet:   %7s\n", "$" + currPlayerWallet);
+		System.out.printf("Net earnings: %7s", sign + "$" + Math.abs(diff));
+	}
+
+	public static void displayDeck(ArrayList<Card> deck) {
+		for (int i = 0; i < deck.size(); i++) {
+			System.out.println(deck.get(i).getCard());
+		}
+	}
+
+	public static void shuffleDeck(ArrayList<Card> deck) {
+		int[] numDeck = new int[NUM_CARDS]; // new integer array
+
+		for (int i = 0; i < NUM_CARDS; i++) { // filling integer array with numbers from 0-51
+			numDeck[i] = i;
+		}
+
+		for (int i = 0; i < 100; i++) { // mixing array up
+			int index1 = (int) (Math.random() * NUM_CARDS);
+			int index2 = (int) (Math.random() * NUM_CARDS);
+			int temp = numDeck[index1];
+			numDeck[index1] = numDeck[index2];
+			numDeck[index2] = temp;
+		}
+
+		for (int i = 0; i < NUM_CARDS; i++) { // adding cards to the deck based on the integer array
+			deck.add(i, new Card(numDeck[i]));
+		}
+	}
+
+	public static boolean playerCanPlay(Player p) {
+		if (p.getWallet() < MIN_ANTE * 2 + MIN_PAIR_PLUS) {
+			System.out.println("Not enough money to meet wager minimums!");
+			return false;
+		}
+		return true;
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2018-11-16 11:16:04.743
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2018-11-16 11:16:04.743
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.core 4 4 2018-11-16 11:16:07.852
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package com.bayviewglen.threecardpoker;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ThreeCardPoker {
+	public static final int NUM_CARDS = 52;
+	public static final int MIN_ANTE = 50;
+	public static final int MAX_ANTE = 100;
+	public static final int MIN_PAIR_PLUS = 50;
+	public static final int MAX_PAIR_PLUS = 100;
+	public static final int INITIAL_WALLET = 1000;
+	static Scanner in = new Scanner(System.in);
+
+	static ArrayList<Card> deck = new ArrayList<Card>(NUM_CARDS);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		boolean gameOver = false;
+
+		shuffleDeck(deck);
+
+		displayDeck(deck);
+
+		Player p = new Player("HEY", 10009);
+
+		while (!gameOver) {
+			if (!playerCanPlay(p)) // checking if the player can play
+				break;
+			p.setAnteWager(getInput("Please enter the ante wager", MIN_ANTE, MAX_ANTE));
+			
+		}
+
+//		for (int i = 0; i < 3; i++) {
+//			p.getHand().drawCard(deck);
+//			System.out.println("Drew a: " + p.getHand().getCards()[i].getCard());
+//		}
+
+		// displayDeck(deck);
+
+		displayEndStats(p);
+
+		/*
+		 * Check if wallet is less than min bet then stop the game
+		 * 
+		 * Set ante
+		 * 
+		 * Ask for pair plus
+		 * 
+		 * Get the pair plus bet if they want it
+		 * 
+		 * 
+		 */
+
+	}
+	
+	public static boolean getInput(String prompt, )
+
+	public static int getInput(String prompt, int min, int max) {
+		System.out.println();
+		System.out.printf("%s (%d - %d): ", prompt, min, max);
+		boolean validInput = false;
+		while (!validInput) {
+			try {
+				int input = Integer.parseInt(in.nextLine().toLowerCase());
+				if (input >= min && input <= max) {
+					return input;
+				}
+			} catch (Exception e) {
+				
+			}
+			System.out.println();
+			System.out.printf("Please enter number from %d to %d:", min, max);
+		}
+		return 0;
+	}
+
+	public static void displayEndStats(Player p) {
+		int currPlayerWallet = p.getWallet();
+		int diff = currPlayerWallet - INITIAL_WALLET;
+		String sign = Math.signum(diff) == 1.0 ? "+" : "-";
+		System.out.println("------Game Ended------");
+		System.out.printf("End wallet:   %7s\n", "$" + currPlayerWallet);
+		System.out.printf("Net earnings: %7s", sign + "$" + Math.abs(diff));
+	}
+
+	public static void displayDeck(ArrayList<Card> deck) {
+		for (int i = 0; i < deck.size(); i++) {
+			System.out.println(deck.get(i).getCard());
+		}
+	}
+
+	public static void shuffleDeck(ArrayList<Card> deck) {
+		int[] numDeck = new int[NUM_CARDS]; // new integer array
+
+		for (int i = 0; i < NUM_CARDS; i++) { // filling integer array with numbers from 0-51
+			numDeck[i] = i;
+		}
+
+		for (int i = 0; i < 100; i++) { // mixing array up
+			int index1 = (int) (Math.random() * NUM_CARDS);
+			int index2 = (int) (Math.random() * NUM_CARDS);
+			int temp = numDeck[index1];
+			numDeck[index1] = numDeck[index2];
+			numDeck[index2] = temp;
+		}
+
+		for (int i = 0; i < NUM_CARDS; i++) { // adding cards to the deck based on the integer array
+			deck.add(i, new Card(numDeck[i]));
+		}
+	}
+
+	public static boolean playerCanPlay(Player p) {
+		if (p.getWallet() < MIN_ANTE * 2 + MIN_PAIR_PLUS) {
+			System.out.println("Not enough money to meet wager minimums!");
+			return false;
+		}
+		return true;
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2018-11-16 11:16:07.867
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2018-11-16 11:16:07.867
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.core 4 4 2018-11-16 11:16:13.539
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package com.bayviewglen.threecardpoker;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ThreeCardPoker {
+	public static final int NUM_CARDS = 52;
+	public static final int MIN_ANTE = 50;
+	public static final int MAX_ANTE = 100;
+	public static final int MIN_PAIR_PLUS = 50;
+	public static final int MAX_PAIR_PLUS = 100;
+	public static final int INITIAL_WALLET = 1000;
+	static Scanner in = new Scanner(System.in);
+
+	static ArrayList<Card> deck = new ArrayList<Card>(NUM_CARDS);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		boolean gameOver = false;
+
+		shuffleDeck(deck);
+
+		displayDeck(deck);
+
+		Player p = new Player("HEY", 10009);
+
+		while (!gameOver) {
+			if (!playerCanPlay(p)) // checking if the player can play
+				break;
+			p.setAnteWager(getInput("Please enter the ante wager", MIN_ANTE, MAX_ANTE));
+			
+		}
+
+//		for (int i = 0; i < 3; i++) {
+//			p.getHand().drawCard(deck);
+//			System.out.println("Drew a: " + p.getHand().getCards()[i].getCard());
+//		}
+
+		// displayDeck(deck);
+
+		displayEndStats(p);
+
+		/*
+		 * Check if wallet is less than min bet then stop the game
+		 * 
+		 * Set ante
+		 * 
+		 * Ask for pair plus
+		 * 
+		 * Get the pair plus bet if they want it
+		 * 
+		 * 
+		 */
+
+	}
+	
+	public static boolean getInput(String prompt, String opt)
+
+	public static int getInput(String prompt, int min, int max) {
+		System.out.println();
+		System.out.printf("%s (%d - %d): ", prompt, min, max);
+		boolean validInput = false;
+		while (!validInput) {
+			try {
+				int input = Integer.parseInt(in.nextLine().toLowerCase());
+				if (input >= min && input <= max) {
+					return input;
+				}
+			} catch (Exception e) {
+				
+			}
+			System.out.println();
+			System.out.printf("Please enter number from %d to %d:", min, max);
+		}
+		return 0;
+	}
+
+	public static void displayEndStats(Player p) {
+		int currPlayerWallet = p.getWallet();
+		int diff = currPlayerWallet - INITIAL_WALLET;
+		String sign = Math.signum(diff) == 1.0 ? "+" : "-";
+		System.out.println("------Game Ended------");
+		System.out.printf("End wallet:   %7s\n", "$" + currPlayerWallet);
+		System.out.printf("Net earnings: %7s", sign + "$" + Math.abs(diff));
+	}
+
+	public static void displayDeck(ArrayList<Card> deck) {
+		for (int i = 0; i < deck.size(); i++) {
+			System.out.println(deck.get(i).getCard());
+		}
+	}
+
+	public static void shuffleDeck(ArrayList<Card> deck) {
+		int[] numDeck = new int[NUM_CARDS]; // new integer array
+
+		for (int i = 0; i < NUM_CARDS; i++) { // filling integer array with numbers from 0-51
+			numDeck[i] = i;
+		}
+
+		for (int i = 0; i < 100; i++) { // mixing array up
+			int index1 = (int) (Math.random() * NUM_CARDS);
+			int index2 = (int) (Math.random() * NUM_CARDS);
+			int temp = numDeck[index1];
+			numDeck[index1] = numDeck[index2];
+			numDeck[index2] = temp;
+		}
+
+		for (int i = 0; i < NUM_CARDS; i++) { // adding cards to the deck based on the integer array
+			deck.add(i, new Card(numDeck[i]));
+		}
+	}
+
+	public static boolean playerCanPlay(Player p) {
+		if (p.getWallet() < MIN_ANTE * 2 + MIN_PAIR_PLUS) {
+			System.out.println("Not enough money to meet wager minimums!");
+			return false;
+		}
+		return true;
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2018-11-16 11:16:13.555
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2018-11-16 11:16:13.555
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.core 4 4 2018-11-16 11:16:16.695
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package com.bayviewglen.threecardpoker;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ThreeCardPoker {
+	public static final int NUM_CARDS = 52;
+	public static final int MIN_ANTE = 50;
+	public static final int MAX_ANTE = 100;
+	public static final int MIN_PAIR_PLUS = 50;
+	public static final int MAX_PAIR_PLUS = 100;
+	public static final int INITIAL_WALLET = 1000;
+	static Scanner in = new Scanner(System.in);
+
+	static ArrayList<Card> deck = new ArrayList<Card>(NUM_CARDS);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		boolean gameOver = false;
+
+		shuffleDeck(deck);
+
+		displayDeck(deck);
+
+		Player p = new Player("HEY", 10009);
+
+		while (!gameOver) {
+			if (!playerCanPlay(p)) // checking if the player can play
+				break;
+			p.setAnteWager(getInput("Please enter the ante wager", MIN_ANTE, MAX_ANTE));
+			
+		}
+
+//		for (int i = 0; i < 3; i++) {
+//			p.getHand().drawCard(deck);
+//			System.out.println("Drew a: " + p.getHand().getCards()[i].getCard());
+//		}
+
+		// displayDeck(deck);
+
+		displayEndStats(p);
+
+		/*
+		 * Check if wallet is less than min bet then stop the game
+		 * 
+		 * Set ante
+		 * 
+		 * Ask for pair plus
+		 * 
+		 * Get the pair plus bet if they want it
+		 * 
+		 * 
+		 */
+
+	}
+	
+	public static boolean getInput(String prompt, String opt1, String o)
+
+	public static int getInput(String prompt, int min, int max) {
+		System.out.println();
+		System.out.printf("%s (%d - %d): ", prompt, min, max);
+		boolean validInput = false;
+		while (!validInput) {
+			try {
+				int input = Integer.parseInt(in.nextLine().toLowerCase());
+				if (input >= min && input <= max) {
+					return input;
+				}
+			} catch (Exception e) {
+				
+			}
+			System.out.println();
+			System.out.printf("Please enter number from %d to %d:", min, max);
+		}
+		return 0;
+	}
+
+	public static void displayEndStats(Player p) {
+		int currPlayerWallet = p.getWallet();
+		int diff = currPlayerWallet - INITIAL_WALLET;
+		String sign = Math.signum(diff) == 1.0 ? "+" : "-";
+		System.out.println("------Game Ended------");
+		System.out.printf("End wallet:   %7s\n", "$" + currPlayerWallet);
+		System.out.printf("Net earnings: %7s", sign + "$" + Math.abs(diff));
+	}
+
+	public static void displayDeck(ArrayList<Card> deck) {
+		for (int i = 0; i < deck.size(); i++) {
+			System.out.println(deck.get(i).getCard());
+		}
+	}
+
+	public static void shuffleDeck(ArrayList<Card> deck) {
+		int[] numDeck = new int[NUM_CARDS]; // new integer array
+
+		for (int i = 0; i < NUM_CARDS; i++) { // filling integer array with numbers from 0-51
+			numDeck[i] = i;
+		}
+
+		for (int i = 0; i < 100; i++) { // mixing array up
+			int index1 = (int) (Math.random() * NUM_CARDS);
+			int index2 = (int) (Math.random() * NUM_CARDS);
+			int temp = numDeck[index1];
+			numDeck[index1] = numDeck[index2];
+			numDeck[index2] = temp;
+		}
+
+		for (int i = 0; i < NUM_CARDS; i++) { // adding cards to the deck based on the integer array
+			deck.add(i, new Card(numDeck[i]));
+		}
+	}
+
+	public static boolean playerCanPlay(Player p) {
+		if (p.getWallet() < MIN_ANTE * 2 + MIN_PAIR_PLUS) {
+			System.out.println("Not enough money to meet wager minimums!");
+			return false;
+		}
+		return true;
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2018-11-16 11:16:16.695
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2018-11-16 11:16:16.695
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.core 4 4 2018-11-16 11:16:18.242
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package com.bayviewglen.threecardpoker;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ThreeCardPoker {
+	public static final int NUM_CARDS = 52;
+	public static final int MIN_ANTE = 50;
+	public static final int MAX_ANTE = 100;
+	public static final int MIN_PAIR_PLUS = 50;
+	public static final int MAX_PAIR_PLUS = 100;
+	public static final int INITIAL_WALLET = 1000;
+	static Scanner in = new Scanner(System.in);
+
+	static ArrayList<Card> deck = new ArrayList<Card>(NUM_CARDS);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		boolean gameOver = false;
+
+		shuffleDeck(deck);
+
+		displayDeck(deck);
+
+		Player p = new Player("HEY", 10009);
+
+		while (!gameOver) {
+			if (!playerCanPlay(p)) // checking if the player can play
+				break;
+			p.setAnteWager(getInput("Please enter the ante wager", MIN_ANTE, MAX_ANTE));
+			
+		}
+
+//		for (int i = 0; i < 3; i++) {
+//			p.getHand().drawCard(deck);
+//			System.out.println("Drew a: " + p.getHand().getCards()[i].getCard());
+//		}
+
+		// displayDeck(deck);
+
+		displayEndStats(p);
+
+		/*
+		 * Check if wallet is less than min bet then stop the game
+		 * 
+		 * Set ante
+		 * 
+		 * Ask for pair plus
+		 * 
+		 * Get the pair plus bet if they want it
+		 * 
+		 * 
+		 */
+
+	}
+	
+	public static boolean getInput(String prompt, String opt1, String op2)
+
+	public static int getInput(String prompt, int min, int max) {
+		System.out.println();
+		System.out.printf("%s (%d - %d): ", prompt, min, max);
+		boolean validInput = false;
+		while (!validInput) {
+			try {
+				int input = Integer.parseInt(in.nextLine().toLowerCase());
+				if (input >= min && input <= max) {
+					return input;
+				}
+			} catch (Exception e) {
+				
+			}
+			System.out.println();
+			System.out.printf("Please enter number from %d to %d:", min, max);
+		}
+		return 0;
+	}
+
+	public static void displayEndStats(Player p) {
+		int currPlayerWallet = p.getWallet();
+		int diff = currPlayerWallet - INITIAL_WALLET;
+		String sign = Math.signum(diff) == 1.0 ? "+" : "-";
+		System.out.println("------Game Ended------");
+		System.out.printf("End wallet:   %7s\n", "$" + currPlayerWallet);
+		System.out.printf("Net earnings: %7s", sign + "$" + Math.abs(diff));
+	}
+
+	public static void displayDeck(ArrayList<Card> deck) {
+		for (int i = 0; i < deck.size(); i++) {
+			System.out.println(deck.get(i).getCard());
+		}
+	}
+
+	public static void shuffleDeck(ArrayList<Card> deck) {
+		int[] numDeck = new int[NUM_CARDS]; // new integer array
+
+		for (int i = 0; i < NUM_CARDS; i++) { // filling integer array with numbers from 0-51
+			numDeck[i] = i;
+		}
+
+		for (int i = 0; i < 100; i++) { // mixing array up
+			int index1 = (int) (Math.random() * NUM_CARDS);
+			int index2 = (int) (Math.random() * NUM_CARDS);
+			int temp = numDeck[index1];
+			numDeck[index1] = numDeck[index2];
+			numDeck[index2] = temp;
+		}
+
+		for (int i = 0; i < NUM_CARDS; i++) { // adding cards to the deck based on the integer array
+			deck.add(i, new Card(numDeck[i]));
+		}
+	}
+
+	public static boolean playerCanPlay(Player p) {
+		if (p.getWallet() < MIN_ANTE * 2 + MIN_PAIR_PLUS) {
+			System.out.println("Not enough money to meet wager minimums!");
+			return false;
+		}
+		return true;
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2018-11-16 11:16:18.242
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2018-11-16 11:16:18.242
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.core 4 4 2018-11-16 11:16:19.804
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package com.bayviewglen.threecardpoker;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ThreeCardPoker {
+	public static final int NUM_CARDS = 52;
+	public static final int MIN_ANTE = 50;
+	public static final int MAX_ANTE = 100;
+	public static final int MIN_PAIR_PLUS = 50;
+	public static final int MAX_PAIR_PLUS = 100;
+	public static final int INITIAL_WALLET = 1000;
+	static Scanner in = new Scanner(System.in);
+
+	static ArrayList<Card> deck = new ArrayList<Card>(NUM_CARDS);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		boolean gameOver = false;
+
+		shuffleDeck(deck);
+
+		displayDeck(deck);
+
+		Player p = new Player("HEY", 10009);
+
+		while (!gameOver) {
+			if (!playerCanPlay(p)) // checking if the player can play
+				break;
+			p.setAnteWager(getInput("Please enter the ante wager", MIN_ANTE, MAX_ANTE));
+			
+		}
+
+//		for (int i = 0; i < 3; i++) {
+//			p.getHand().drawCard(deck);
+//			System.out.println("Drew a: " + p.getHand().getCards()[i].getCard());
+//		}
+
+		// displayDeck(deck);
+
+		displayEndStats(p);
+
+		/*
+		 * Check if wallet is less than min bet then stop the game
+		 * 
+		 * Set ante
+		 * 
+		 * Ask for pair plus
+		 * 
+		 * Get the pair plus bet if they want it
+		 * 
+		 * 
+		 */
+
+	}
+	
+	public static boolean getInput(String prompt, String opt1, String opt2)
+
+	public static int getInput(String prompt, int min, int max) {
+		System.out.println();
+		System.out.printf("%s (%d - %d): ", prompt, min, max);
+		boolean validInput = false;
+		while (!validInput) {
+			try {
+				int input = Integer.parseInt(in.nextLine().toLowerCase());
+				if (input >= min && input <= max) {
+					return input;
+				}
+			} catch (Exception e) {
+				
+			}
+			System.out.println();
+			System.out.printf("Please enter number from %d to %d:", min, max);
+		}
+		return 0;
+	}
+
+	public static void displayEndStats(Player p) {
+		int currPlayerWallet = p.getWallet();
+		int diff = currPlayerWallet - INITIAL_WALLET;
+		String sign = Math.signum(diff) == 1.0 ? "+" : "-";
+		System.out.println("------Game Ended------");
+		System.out.printf("End wallet:   %7s\n", "$" + currPlayerWallet);
+		System.out.printf("Net earnings: %7s", sign + "$" + Math.abs(diff));
+	}
+
+	public static void displayDeck(ArrayList<Card> deck) {
+		for (int i = 0; i < deck.size(); i++) {
+			System.out.println(deck.get(i).getCard());
+		}
+	}
+
+	public static void shuffleDeck(ArrayList<Card> deck) {
+		int[] numDeck = new int[NUM_CARDS]; // new integer array
+
+		for (int i = 0; i < NUM_CARDS; i++) { // filling integer array with numbers from 0-51
+			numDeck[i] = i;
+		}
+
+		for (int i = 0; i < 100; i++) { // mixing array up
+			int index1 = (int) (Math.random() * NUM_CARDS);
+			int index2 = (int) (Math.random() * NUM_CARDS);
+			int temp = numDeck[index1];
+			numDeck[index1] = numDeck[index2];
+			numDeck[index2] = temp;
+		}
+
+		for (int i = 0; i < NUM_CARDS; i++) { // adding cards to the deck based on the integer array
+			deck.add(i, new Card(numDeck[i]));
+		}
+	}
+
+	public static boolean playerCanPlay(Player p) {
+		if (p.getWallet() < MIN_ANTE * 2 + MIN_PAIR_PLUS) {
+			System.out.println("Not enough money to meet wager minimums!");
+			return false;
+		}
+		return true;
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2018-11-16 11:16:19.804
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2018-11-16 11:16:19.804
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2934)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:623)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3036)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1393)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:343)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:268)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:596)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1145)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:736)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1322)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:92)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)

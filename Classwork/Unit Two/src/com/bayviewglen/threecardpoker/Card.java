@@ -1,6 +1,6 @@
 package com.bayviewglen.threecardpoker;
 
-public class Card {
+public class Card implements Comparable<Card>{
 	private String suit;
 	private String face;
 	private String color;
@@ -17,6 +17,17 @@ public class Card {
 			this.color = "R"; // card is red
 		}
 
+	}
+	
+	@Override
+	public int compareTo(Card anotherCard) {
+		int a = anotherCard.getValue();
+		int b = this.getValue();
+		if (a > b)
+			return +1;
+		else if (a < b) 
+			return -1;
+		return 0;
 	}
 
 	public void setFaceUp(boolean isFaceUp) {
@@ -35,15 +46,23 @@ public class Card {
 		}
 		return String.format("%02d", Integer.parseInt(this.face)) + this.suit;
 	}
+	
+	public String getSuit() {
+		return suit;
+	}
 
-	public String getColor(String face) {
+	public String getColor() {
 		return color;
+	}
+	
+	public String getFace() {
+		return face;
 	}
 
 	public int getValue() {
 		switch (this.face) {
 		case "A":
-			return 1;
+			return 14;
 		case "K":
 			return 13;
 		case "Q":

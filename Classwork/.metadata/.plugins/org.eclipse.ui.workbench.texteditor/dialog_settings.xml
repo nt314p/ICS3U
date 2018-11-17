@@ -2,12 +2,14 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="%3d" key="selection"/>
+		<item value="p.getHand()" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="p.getHand()"/>
+			<item value="p.getHand"/>
 			<item value="%03d"/>
 			<item value="// finding time to mile two to finish"/>
 			<item value="// finding mile one to mile two time"/>
@@ -21,10 +23,9 @@
 			<item value="Member Name:"/>
 			<item value="Member:  "/>
 			<item value="Split Times for"/>
-			<item value=" Time: &quot;"/>
-			<item value=" Time:   &quot;"/>
 		</list>
 		<list key="replacehistory">
+			<item value="playerHand"/>
 			<item value="%3d"/>
 			<item value="%-3d"/>
 			<item value="// finding time to mile two to finish (split three)"/>
@@ -39,7 +40,6 @@
 			<item value="Member Name: "/>
 			<item value="Member Name:"/>
 			<item value="Member"/>
-			<item value=": &quot;"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

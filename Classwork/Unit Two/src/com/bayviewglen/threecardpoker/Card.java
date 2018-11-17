@@ -3,7 +3,6 @@ package com.bayviewglen.threecardpoker;
 public class Card implements Comparable<Card>{
 	private String suit;
 	private String face;
-	private String color;
 	private boolean faceUp = true;
 
 	public Card(int cardNum) {
@@ -11,12 +10,6 @@ public class Card implements Comparable<Card>{
 		int suit = cardNum / 13;
 		this.face = numToFace(face);
 		this.suit = numToSuit(suit);
-		if (this.face.equals("C") || this.face.equals("S")) {
-			this.color = "B"; // card is black
-		} else {
-			this.color = "R"; // card is red
-		}
-
 	}
 	
 	@Override
@@ -49,10 +42,6 @@ public class Card implements Comparable<Card>{
 	
 	public String getSuit() {
 		return suit;
-	}
-
-	public String getColor() {
-		return color;
 	}
 	
 	public String getFace() {
@@ -101,6 +90,21 @@ public class Card implements Comparable<Card>{
 			return "S";
 		default:
 			return "ERROR";
+		}
+	}
+	
+	public String faceToFullName() { // gets the full name of the face
+		switch (face) {
+		case "A":
+			return "Ace";
+		case "J":
+			return "Jack";
+		case "Q":
+			return "Queen";
+		case "K":
+			return "King";
+		default:
+			return "" + face; // card is 2 - 10
 		}
 	}
 }

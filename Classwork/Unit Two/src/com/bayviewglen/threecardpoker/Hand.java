@@ -22,6 +22,10 @@ public class Hand {
 	public Card[] getCards() {
 		return cards;
 	}
+	
+	public void clearHand() {
+		cards = new Card[size];
+	}
 
 	public void sortHand() {
 		Arrays.sort(cards);
@@ -52,12 +56,10 @@ public class Hand {
 	}
 
 	public String getHandType() {
-		System.out.println(isFlush());
-
 		if (isStraightFlush())
-			return "Straight Flush";
+			return "Straight flush";
 		else if (isThreeOfAKind())
-			return "Three of a Kind";
+			return "Three of a kind";
 		else if (isStraight())
 			return "Straight";
 		else if (isFlush())
@@ -65,7 +67,7 @@ public class Hand {
 		else if (isPair())
 			return "Pair";
 		else
-			return "High card: " + getHighCard().getCard();
+			return getHighCard().faceToFullName() +"-high";
 	}
 
 	public Card getHighCard() {

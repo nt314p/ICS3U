@@ -61,18 +61,19 @@ public class ThreeCardPoker {
 			playerHand.sortHand();
 			p.displayHand(); // should we sort the hand?? YES!
 			System.out.println(playerHand.getHandType() + "!\n");
-
-			if (playerHand.getHandPayout() != 0 && p.getPairPlusWager() != 0) {
-				p.payoutPairPlus();
-			}
-
+			
 			if (getInput("Do you want to play the dealer or fold", "P", "F").equals("F")) { // Checking for folding
 				System.out.println("\nPlayer folded.");
+				
 			} else { // Playing the dealer
 				System.out.println("\nPlayer is playing the dealer.\n");
 
 				p.setPlayWager(p.getAnteWager());
 				p.deductPlay();
+				
+				if (playerHand.getHandPayout() != 0 && p.getPairPlusWager() != 0) { // paying out pair plus if pair plus!
+					p.payoutPairPlus(playerHand.getHandPayout());
+				}
 
 				dealerHand.sortHand();
 				System.out.println("\nDealer hand: " + dealerHand.getStringHand());
@@ -150,7 +151,7 @@ public class ThreeCardPoker {
 
 	public static void displayTurnStats(Player p) {
 		System.out.println("\n------Turn Stats------");
-		p.displayWallet();
+		System.out.printf("Wallet:    %7s\n", "$" + p.getWallet());
 		System.out.printf("Ante:      %7s\n", signedMoney(-p.getAnteWager()));
 		System.out.printf("Pair Plus: %7s\n", signedMoney(-p.getPairPlusWager()));
 		System.out.printf("Play:      %7s\n", signedMoney(-p.getPlayWager()));
@@ -160,7 +161,7 @@ public class ThreeCardPoker {
 		int currPlayerWallet = p.getWallet();
 		int diff = currPlayerWallet - INITIAL_WALLET;
 		System.out.println("\n------Game Ended------");
-		System.out.printf("End wallet:   %7s\n", "$" + signedMoney(currPlayerWallet));
+		System.out.printf("End wallet:   %7s\n", signedMoney(currPlayerWallet));
 		System.out.printf("Net earnings: %7s", signedMoney(diff));
 	}
 

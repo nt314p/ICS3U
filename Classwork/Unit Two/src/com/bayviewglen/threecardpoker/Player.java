@@ -73,8 +73,8 @@ public class Player {
 		System.out.printf("$%d gained for ante wager.\n", payout);
 	}
 
-	public void payoutPairPlus() {
-		int payout = pairPlusWager * 2;
+	public void payoutPairPlus(int ratio) {
+		int payout = pairPlusWager * (ratio + 1);
 		pairPlusWager -= payout; // for end stats
 		wallet += payout;
 		System.out.printf("$%d gained for pair plus wager.\n", payout);

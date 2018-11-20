@@ -7,8 +7,8 @@ public class Player {
 	private int pairPlusWager = 0;
 	private int playWager = 0;
 
-	public Player(int wallet) {
-		this.hand = new Hand(3); // new hand with size of 3
+	public Player(int wallet, int handSize) {
+		this.hand = new Hand(handSize); // new hand
 		this.wallet = wallet;
 	}
 
@@ -48,6 +48,10 @@ public class Player {
 		anteWager = 0;
 		pairPlusWager = 0;
 		playWager = 0;
+	}
+	
+	public int getTotalWagers() {
+		return anteWager + pairPlusWager + playWager;
 	}
 
 	public void deductAnte() {

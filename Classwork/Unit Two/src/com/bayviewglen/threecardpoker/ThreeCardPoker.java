@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class ThreeCardPoker {
 	public static final int NUM_CARDS = 52;
+	public static final int NUM_CARDS_IN_HAND = 3;
 	public static final int MIN_ANTE = 50;
 	public static final int MAX_ANTE = 100;
 	public static final int MIN_PAIR_PLUS = 50;
@@ -16,25 +17,22 @@ public class ThreeCardPoker {
 	static ArrayList<Card> deck = new ArrayList<Card>(NUM_CARDS);
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		boolean gameOver = false;
 
-		// displayDeck(deck);
-
-		Player p = new Player(INITIAL_WALLET);
+		Player p = new Player(INITIAL_WALLET, NUM_CARDS_IN_HAND);
 		Hand playerHand = p.getHand();
-		Hand dealerHand = new Hand(3);
+		Hand dealerHand = new Hand(NUM_CARDS_IN_HAND);
 
 		while (!gameOver) {
 			if (!playerCanPlay(p)) // checking if the player can play
 				break;
-			
+
 			shuffleDeck(deck);
 
 			playerHand.clearHand(); // clearing player's hand
 			dealerHand.clearHand(); // clearing dealer's hand
-			
+
 			p.clearWagers();
 
 			p.setAnteWager(getInput("Please enter the ante wager", MIN_ANTE, MAX_ANTE)); // setting ante wager
@@ -50,7 +48,7 @@ public class ThreeCardPoker {
 
 			System.out.println();
 
-			for (int i = 0; i < 3; i++) {
+			for (int i = 0; i < NUM_CARDS_IN_HAND; i++) {
 				playerHand.drawCard(deck); // player draws card
 				dealerHand.drawCard(deck); // dealer draws card
 				System.out.println("Player drew a " + playerHand.getCards()[i].getCard() + ".");
@@ -61,17 +59,18 @@ public class ThreeCardPoker {
 			playerHand.sortHand();
 			p.displayHand(); // should we sort the hand?? YES!
 			System.out.println(playerHand.getHandType() + "!\n");
-			
+
 			if (getInput("Do you want to play the dealer or fold", "P", "F").equals("F")) { // Checking for folding
 				System.out.println("\nPlayer folded.");
-				
+
 			} else { // Playing the dealer
 				System.out.println("\nPlayer is playing the dealer.\n");
 
 				p.setPlayWager(p.getAnteWager());
 				p.deductPlay();
 				
-				if (playerHand.getHandPayout() != 0 && p.getPairPlusWager() != 0) { // paying out pair plus if pair plus!
+				// paying out pair plus if pair plus!
+				if (playerHand.getHandPayout() != 0 && p.getPairPlusWager() != 0) { 
 					p.payoutPairPlus(playerHand.getHandPayout());
 				}
 
@@ -88,29 +87,25 @@ public class ThreeCardPoker {
 					playerWin(p);
 
 				} else if (dealerHand.getHandPayout() == playerHand.getHandPayout()) { // pay out equal
+					int compareHighCards = playerHand.getHighCard().compareTo(dealerHand.getHighCard());
+
 					if (dealerHand.getHandPayout() == 0) { // both player and dealer have high cards
-						int compareHighCards = playerHand.getHighCard().compareTo(dealerHand.getHighCard());
-						if (compareHighCards == -1) { // high card win
-							playerWin(p); // player beats dealer
-						} else if (compareHighCards == 0) { // high card tie
-							playerTie(p);
-						} else { // high card loss
-							playerLoss();
-						}
+						determineOutcome(p, compareHighCards); // win, tie, or loss
 					} else { // pair plus hand ties
-						playerTie(p);
+						if (!(playerHand.getHandPayout() == 1)) { // if the hand is not a pair
+							determineOutcome(p, compareHighCards);
+						} else {
+							playerTie(p);
+						}
 					}
 				} else { // no win, no tie, loss
 					playerLoss();
 				}
-
 			}
 			displayTurnStats(p);
-			
 			// seeing if player wants to play again
-			gameOver = getInput("Do you want to play again", "Y", "N").equals("N"); 
+			gameOver = getInput("Do you want to play again", "Y", "N").equals("N");
 		} // end of while loop
-
 		displayEndStats(p);
 	}
 
@@ -150,24 +145,43 @@ public class ThreeCardPoker {
 	}
 
 	public static void displayTurnStats(Player p) {
-		System.out.println("\n------Turn Stats------");
-		System.out.printf("Wallet:    %7s\n", "$" + p.getWallet());
-		System.out.printf("Ante:      %7s\n", signedMoney(-p.getAnteWager()));
-		System.out.printf("Pair Plus: %7s\n", signedMoney(-p.getPairPlusWager()));
-		System.out.printf("Play:      %7s\n", signedMoney(-p.getPlayWager()));
+		System.out.println("\n-----Turn Stats-----");
+		System.out.printf("Wallet:     %7s\n", "$" + p.getWallet());
+		System.out.printf("Ante:       %7s\n", signedMoney(-p.getAnteWager()));
+		System.out.printf("Pair Plus:  %7s\n", signedMoney(-p.getPairPlusWager()));
+		System.out.printf("Play:       %7s\n", signedMoney(-p.getPlayWager()));
+		System.out.printf("Total:      %7s\n", signedMoney(-p.getTotalWagers()));
 	}
 
 	public static void displayEndStats(Player p) {
 		int currPlayerWallet = p.getWallet();
 		int diff = currPlayerWallet - INITIAL_WALLET;
-		System.out.println("\n------Game Ended------");
-		System.out.printf("End wallet:   %7s\n", signedMoney(currPlayerWallet));
-		System.out.printf("Net earnings: %7s", signedMoney(diff));
+		System.out.println("\n-----Game Ended-----");
+		System.out.printf("End wallet: %7s\n", signedMoney(currPlayerWallet));
+		System.out.printf("Earnings:   %7s\n", signedMoney(diff));
+		System.out.printf("Gain %%:    %+7.1f%%", (100.0 * diff) / INITIAL_WALLET);
 	}
 
 	public static void displayDeck(ArrayList<Card> deck) {
 		for (int i = 0; i < deck.size(); i++) {
 			System.out.println(deck.get(i).getCard());
+		}
+	}
+
+	public static void determineOutcome(Player p, int compareHighCards) {
+		switch (compareHighCards) {
+		case -1:
+			playerWin(p);
+			break;
+		case 0:
+			playerTie(p);
+			break;
+		case 1:
+			playerLoss();
+			break;
+		default:
+			System.out.println("Invalid compare card value");
+			break;
 		}
 	}
 
@@ -193,7 +207,7 @@ public class ThreeCardPoker {
 			numDeck[i] = i;
 		}
 
-		for (int i = 0; i < 100; i++) { // mixing array up
+		for (int i = 0; i < 1000; i++) { // mixing array up
 			int index1 = (int) (Math.random() * NUM_CARDS);
 			int index2 = (int) (Math.random() * NUM_CARDS);
 			int temp = numDeck[index1];
@@ -220,5 +234,4 @@ public class ThreeCardPoker {
 		}
 		return true;
 	}
-
 }

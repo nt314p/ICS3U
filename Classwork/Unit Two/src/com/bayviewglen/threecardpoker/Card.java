@@ -12,6 +12,16 @@ public class Card implements Comparable<Card>{
 		this.suit = numToSuit(suit);
 	}
 	
+	public Card(String card) {
+		char face = card.charAt(1);
+		if (face == '0') {
+			this.face = "10";
+		} else {
+			this.face = face + "";
+		}
+		this.suit = card.charAt(2) + "";
+	}
+	
 	@Override
 	public int compareTo(Card anotherCard) {
 		int a = anotherCard.getValue();

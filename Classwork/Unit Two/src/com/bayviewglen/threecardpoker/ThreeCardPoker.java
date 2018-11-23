@@ -7,9 +7,9 @@ public class ThreeCardPoker {
 	public static final int NUM_CARDS = 52;
 	public static final int NUM_CARDS_IN_HAND = 3;
 	public static final int MIN_ANTE = 50;
-	public static final int MAX_ANTE = 100;
+	public static final int MAX_ANTE = 250;
 	public static final int MIN_PAIR_PLUS = 50;
-	public static final int MAX_PAIR_PLUS = 100;
+	public static final int MAX_PAIR_PLUS = 250;
 	public static final int INITIAL_WALLET = 1000;
 
 	static Scanner in = new Scanner(System.in);
@@ -23,6 +23,8 @@ public class ThreeCardPoker {
 		Player p = new Player(INITIAL_WALLET, NUM_CARDS_IN_HAND);
 		Hand playerHand = p.getHand();
 		Hand dealerHand = new Hand(NUM_CARDS_IN_HAND);
+		
+		System.out.printf("Wallet:     %7s\n", "$" + p.getWallet());
 
 		while (!gameOver) {
 			if (!playerCanPlay(p)) // checking if the player can play
@@ -34,17 +36,22 @@ public class ThreeCardPoker {
 			dealerHand.clearHand(); // clearing dealer's hand
 
 			p.clearWagers();
-
-			p.setAnteWager(getInput("Please enter the ante wager", MIN_ANTE, MAX_ANTE)); // setting ante wager
-			p.deductAnte();
-
-			if (getInput("Do you want to place a pair plus wager", "Y", "N").equals("Y")) { // checking pair plus wager
-				p.setPairPlusWager(getInput("Please enter the pair plus wager", MIN_PAIR_PLUS, MAX_PAIR_PLUS));
+			// setting ante wager
+			p.setAnteWager(getInput("Please enter the ante wager", MIN_ANTE, Math.min(p.getWallet(), MAX_ANTE)));
+			p.deductWager("ante");
+			if (p.getWallet() >= MIN_PAIR_PLUS) {
+				if (getInput("Do you want to place a pair plus wager", "Y", "N").equals("Y")) { // checking pair plus
+																								// wager
+					p.setPairPlusWager(getInput("Please enter the pair plus wager", MIN_PAIR_PLUS,
+							Math.min(p.getWallet(), MAX_PAIR_PLUS)));
+				} else {
+					p.setPairPlusWager(0);
+				}
+				p.deductWager("pairPlus");
 			} else {
 				p.setPairPlusWager(0);
+				System.out.println("\nNot enough money to bet pair plus.");
 			}
-
-			p.deductPairPlus();
 
 			System.out.println();
 
@@ -60,51 +67,62 @@ public class ThreeCardPoker {
 			p.displayHand(); // should we sort the hand?? YES!
 			System.out.println(playerHand.getHandType() + "!\n");
 
-			if (getInput("Do you want to play the dealer or fold", "P", "F").equals("F")) { // Checking for folding
-				System.out.println("\nPlayer folded.");
+			if (p.getWallet() < p.getAnteWager()) {
+				System.out.println("Not enough money to play dealer.");
+				System.out.println("Player folded.");
+			} else {
 
-			} else { // Playing the dealer
-				System.out.println("\nPlayer is playing the dealer.\n");
+				if (getInput("Do you want to play the dealer or fold", "P", "F").equals("F")) { // Checking for folding
+					System.out.println("\nPlayer folded.");
 
-				p.setPlayWager(p.getAnteWager());
-				p.deductPlay();
-				
-				// paying out pair plus if pair plus!
-				if (playerHand.getHandPayout() != 0 && p.getPairPlusWager() != 0) { 
-					p.payoutPairPlus(playerHand.getHandPayout());
-				}
+				} else { // Playing the dealer
+					System.out.println("\nPlayer is playing the dealer.\n");
 
-				dealerHand.sortHand();
-				System.out.println("\nDealer hand: " + dealerHand.getStringHand());
-				System.out.println(dealerHand.getHandType() + "!\n");
+					p.setPlayWager(p.getAnteWager());
+					p.deductWager("play");
 
-				// dealer hand jack-high or worse and no pair plus, no qualify
-				if (dealerHand.getHighCard().getValue() <= 11 && dealerHand.getHandPayout() == 0) {
-					System.out.println("Dealer doesn't qualify.");
-					p.payoutPlay(0); // return play wager
-
-				} else if (dealerHand.getHandPayout() < playerHand.getHandPayout()) { // player beats dealer
-					playerWin(p);
-
-				} else if (dealerHand.getHandPayout() == playerHand.getHandPayout()) { // pay out equal
-					int compareHighCards = playerHand.getHighCard().compareTo(dealerHand.getHighCard());
-
-					if (dealerHand.getHandPayout() == 0) { // both player and dealer have high cards
-						determineOutcome(p, compareHighCards); // win, tie, or loss
-					} else { // pair plus hand ties
-						if (!(playerHand.getHandPayout() == 1)) { // if the hand is not a pair
-							determineOutcome(p, compareHighCards);
-						} else {
-							playerTie(p);
-						}
+					// paying out pair plus if pair plus!
+					if (playerHand.getHandPayout() != 0 && p.getPairPlusWager() != 0) {
+						p.payoutPairPlus(playerHand.getHandPayout());
 					}
-				} else { // no win, no tie, loss
-					playerLoss();
+
+					dealerHand.sortHand();
+					System.out.println("\nDealer hand: " + dealerHand.getStringHand());
+					System.out.println(dealerHand.getHandType() + "!\n");
+
+					// dealer hand jack-high or worse and no pair plus, no qualify
+					if (dealerHand.getHighCard().getValue() <= 11 && dealerHand.getHandPayout() == 0) {
+						System.out.println("Dealer doesn't qualify.");
+						p.payoutPlay(0); // return play wager
+
+					} else if (dealerHand.getHandPayout() < playerHand.getHandPayout()) { // player beats dealer
+						playerWin(p);
+
+					} else if (dealerHand.getHandPayout() == playerHand.getHandPayout()) { // pay out equal
+						int compareHighCards = playerHand.getHighCard().compareTo(dealerHand.getHighCard());
+
+						if (dealerHand.getHandPayout() == 0) { // both player and dealer have high cards
+							determineOutcome(p, compareHighCards); // win, tie, or loss
+						} else { // pair plus hand ties
+							if (!(playerHand.getHandPayout() == 1)) { // if the hand is not a pair
+								determineOutcome(p, compareHighCards);
+							} else { // player and dealer has a pair
+								playerTie(p);
+							}
+						}
+					} else { // no win, no tie, loss
+						playerLoss();
+					}
 				}
 			}
 			displayTurnStats(p);
+
 			// seeing if player wants to play again
-			gameOver = getInput("Do you want to play again", "Y", "N").equals("N");
+			if (playerCanPlay(p)) {
+				gameOver = getInput("Do you want to play again", "Y", "N").equals("N");
+			} else {
+				break;
+			}
 		} // end of while loop
 		displayEndStats(p);
 	}
@@ -127,6 +145,10 @@ public class ThreeCardPoker {
 
 	public static int getInput(String prompt, int min, int max) {
 		System.out.println();
+		if (min == max) {
+			System.out.println("Player has no choice.");
+			return min;
+		}
 		System.out.printf("%s (%d - %d): ", prompt, min, max);
 		boolean validInput = false;
 		while (!validInput) {
@@ -228,7 +250,7 @@ public class ThreeCardPoker {
 	}
 
 	public static boolean playerCanPlay(Player p) {
-		if (p.getWallet() < MIN_ANTE * 2 + MIN_PAIR_PLUS) {
+		if (p.getWallet() < MIN_ANTE * 2) {
 			System.out.println("\nNot enough money to meet wager minimums!");
 			return false;
 		}

@@ -1,11 +1,13 @@
 package com.bayviewglen.threecardpoker;
 
+import java.lang.reflect.Field;
+
 public class Player {
 	private Hand hand;
 	private int wallet;
-	private int anteWager = 0;
-	private int pairPlusWager = 0;
-	private int playWager = 0;
+	int anteWager = 0;
+	int pairPlusWager = 0;
+	int playWager = 0;
 
 	public Player(int wallet, int handSize) {
 		this.hand = new Hand(handSize); // new hand
@@ -53,21 +55,20 @@ public class Player {
 	public int getTotalWagers() {
 		return anteWager + pairPlusWager + playWager;
 	}
-
-	public void deductAnte() {
-		wallet -= anteWager;
-		System.out.printf("$%d deducted for ante wager.\n", anteWager);
-	}
-
-	public void deductPairPlus() {
-		wallet -= pairPlusWager;
-		if (!(pairPlusWager == 0))
-			System.out.printf("$%d deducted for pair plus wager.\n", pairPlusWager);
-	}
-
-	public void deductPlay() {
-		wallet -= playWager;
-		System.out.printf("$%d deducted for play wager.\n", playWager);
+	
+	public void deductWager(String wagerName) {
+		String fieldName = wagerName+"Wager";
+		try {
+			Field f = this.getClass().getDeclaredField(fieldName);
+			int deductAmount = (int) f.get(this);
+			wallet -= deductAmount;
+			if (wagerName.equals("pairPlus"))
+				wagerName = "pair plus";
+			if (deductAmount != 0)
+				System.out.printf("$%d deducted for %s wager.\n", deductAmount, wagerName);
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
 	}
 
 	public void payoutAnte() {
@@ -91,12 +92,7 @@ public class Player {
 		System.out.printf("$%d %s for play wager.\n", payout, ratio==0 ? "returned" : "gained");
 	}
 
-	public void displayWallet() {
-		System.out.println("Wallet: $" + wallet);
-	}
-
 	public void displayHand() {
 		System.out.println("Player's hand: " + hand.getStringHand());
 	}
-
 }

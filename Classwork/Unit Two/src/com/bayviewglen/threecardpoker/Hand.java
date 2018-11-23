@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class Hand {
 	private int size = 0;
-	public Card[] cards;
+	private Card[] cards;
 
 	private static final int STRAIGHT_FLUSH = 40;
 	private static final int THREE_OF_A_KIND = 30;
@@ -134,7 +134,5 @@ public class Hand {
 				}
 			}
 		}
-
 	}
-
 }

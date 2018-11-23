@@ -3,7 +3,6 @@ package com.bayviewglen.threecardpoker;
 public class Card implements Comparable<Card>{
 	private String suit;
 	private String face;
-	private boolean faceUp = true;
 
 	public Card(int cardNum) {
 		int face = cardNum % 13 + 1;
@@ -33,17 +32,7 @@ public class Card implements Comparable<Card>{
 		return 0;
 	}
 
-	public void setFaceUp(boolean isFaceUp) {
-		faceUp = isFaceUp;
-	}
-
-	public boolean isFaceUp() {
-		return faceUp;
-	}
-
 	public String getCard() {
-		if (!faceUp)
-			return "XXX";
 		if (Character.isLetter(this.face.charAt(0))) {
 			return this.face + this.face + this.suit;
 		}

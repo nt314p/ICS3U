@@ -23,8 +23,8 @@ public class ThreeCardPoker {
 		Player p = new Player(INITIAL_WALLET, NUM_CARDS_IN_HAND);
 		Hand playerHand = p.getHand();
 		Hand dealerHand = new Hand(NUM_CARDS_IN_HAND);
-		
-		System.out.printf("Wallet:     %7s\n", "$" + p.getWallet());
+				
+		System.out.printf("Wallet: %7s\n", "$" + p.getWallet());
 
 		while (!gameOver) {
 			if (!playerCanPlay(p)) // checking if the player can play

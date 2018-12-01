@@ -3,13 +3,22 @@ package com.bayviewglen.threecardpoker;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/* Three Card Poker
+ * 
+ * Made by: Nicolas Tong
+ * Date: 11/28/18
+ * 
+ * Follow the on-screen rules to play.
+ * 
+ */
+
 public class ThreeCardPoker {
 	public static final int NUM_CARDS = 52;
 	public static final int NUM_CARDS_IN_HAND = 3;
 	public static final int MIN_ANTE = 50;
-	public static final int MAX_ANTE = 250;
+	public static final int MAX_ANTE = 100;
 	public static final int MIN_PAIR_PLUS = 50;
-	public static final int MAX_PAIR_PLUS = 250;
+	public static final int MAX_PAIR_PLUS = 100;
 	public static final int INITIAL_WALLET = 1000;
 
 	static Scanner in = new Scanner(System.in);
@@ -23,8 +32,18 @@ public class ThreeCardPoker {
 		Player p = new Player(INITIAL_WALLET, NUM_CARDS_IN_HAND);
 		Hand playerHand = p.getHand();
 		Hand dealerHand = new Hand(NUM_CARDS_IN_HAND);
-				
-		System.out.printf("Wallet: %7s\n", "$" + p.getWallet());
+		
+		System.out.println("Welcome to NTONGSP3's Three Card Poker");
+		System.out.println("We have no ante bonuses, only pair plus bonuses:\n");
+		System.out.println("Pair Plus Type  |  Payout ");
+		System.out.println("----------------|---------");
+		System.out.println("Straight Flush  | 40 to 1");
+		System.out.println("Three of a kind | 30 to 1");
+		System.out.println("Straight        |  6 to 1");
+		System.out.println("Flush           |  3 to 1");
+		System.out.println("Pair            |  1 to 1");
+		System.out.println("\nWe wish you good luck, but you can't change the probabilities...\n");
+		System.out.printf("Wallet: %5s\n", "$" + p.getWallet());
 
 		while (!gameOver) {
 			if (!playerCanPlay(p)) // checking if the player can play

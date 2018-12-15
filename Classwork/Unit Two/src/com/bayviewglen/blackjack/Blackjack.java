@@ -44,7 +44,6 @@ public class Blackjack {
 		int playerHandValue = 0;
 		int numAces = 0;
 		int playerBet = getPlayerBet(playerWallet);
-		boolean hitMe = true;
 
 		String dealerHand = "XX ";
 		int dealerHandValueLowAce = 0;

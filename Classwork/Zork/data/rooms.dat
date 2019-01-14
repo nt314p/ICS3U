@@ -1,0 +1,9 @@
+Room Name: Living Room
+Room Description:  This is a living room. To the east, it looks like there is a kitchen.
+Exit Rooms: E-Kitchen
+Room Name: Kitchen
+Room Description:  You are in a beautiful modern white kitchen.
+Exit Rooms: W-Living Room, U-Room 3
+Room Name: Room 3
+Room Description:  You are upstairs.
+Exit Rooms: D-Kitchen

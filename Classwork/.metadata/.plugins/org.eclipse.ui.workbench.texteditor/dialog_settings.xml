@@ -2,12 +2,14 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="deductWager(&quot;pairPlus&quot;)" key="selection"/>
+		<item value="Living Room" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="Room 1"/>
+			<item value="Room 2"/>
 			<item value="deductPairPlus()"/>
 			<item value="deductAnte()"/>
 			<item value="deductPlay()"/>
@@ -21,10 +23,10 @@
 			<item value="S2);"/>
 			<item value="S1);"/>
 			<item value="reader"/>
-			<item value=" Time: "/>
-			<item value="printing split"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Living Room"/>
+			<item value="Kitchen"/>
 			<item value="deductWager(&quot;pairPlus&quot;)"/>
 			<item value="deductWager(&quot;ante&quot;)"/>
 			<item value="deductWager(&quot;play&quot;)"/>
@@ -38,13 +40,11 @@
 			<item value="S1); // split one"/>
 			<item value="in"/>
 			<item value=": "/>
-			<item value="formatting split"/>
-			<item value="%03d"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="385" key="DIALOG_WIDTH"/>
-		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|5|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="523" key="DIALOG_HEIGHT"/>
 		<item value="1387" key="DIALOG_X_ORIGIN"/>
 		<item value="203" key="DIALOG_Y_ORIGIN"/>

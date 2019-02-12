@@ -151,6 +151,9 @@ public class DoubleArraySequence implements Cloneable {
 		if (manyItems + 1 > data.length) {
 			this.ensureCapacity(data.length * 2);
 		}
+		if (!isCurrent()) {
+			currentIndex = 0;
+		}
 		currentIndex++;
 //		if (currentIndex == 0) {
 //			currentIndex = 1;
@@ -169,7 +172,7 @@ public class DoubleArraySequence implements Cloneable {
 	/**
 	 * Place the contents of another sequence at the end of this sequence.
 	 * 
-	 * @param addend a sequence whose contents will be placed at the end of this
+	 * @param temp a sequence whose contents will be placed at the end of this
 	 *               sequence
 	 * @precondition The parameter, addend, is not null.
 	 * @postcondition The elements from addend have been placed at the end of this
@@ -182,13 +185,14 @@ public class DoubleArraySequence implements Cloneable {
 	 *       an arithmetic overflow that will cause the sequence to fail.
 	 **/
 	public void addAll(DoubleArraySequence addend) {
+		
+		DoubleArraySequence temp = new DoubleArraySequence(addend);
+		temp.trimToSize();
 
-		addend.trimToSize();
+		this.ensureCapacity(this.manyItems + temp.manyItems);
 
-		this.ensureCapacity(this.manyItems + addend.manyItems);
-
-		for (int i = 0; i < addend.manyItems; i++) {
-			this.data[manyItems] = addend.data[i];
+		for (int i = 0; i < temp.manyItems; i++) {
+			this.data[manyItems] = temp.data[i];
 			manyItems++;
 		}
 	}
@@ -259,20 +263,24 @@ public class DoubleArraySequence implements Cloneable {
 //		if (s1.data.length < 0 || s2.data.length < 0) {
 //			return null;
 //		}
-		s1.trimToSize();
-		s2.trimToSize(); // #destruction_of_data
-		double[] newData = new double[s1.data.length + s2.data.length];
+		DoubleArraySequence d1 = new DoubleArraySequence(s1);
+		DoubleArraySequence d2 = new DoubleArraySequence(s2);
+		d1.trimToSize();
+		d2.trimToSize();
+		double[] newData = new double[d1.data.length + d2.data.length];
 
-		for (int i = 0; i < s1.data.length; i++) {
-			newData[k] = s1.data[i];
+		for (int i = 0; i < d1.data.length; i++) {
+			newData[k] = d1.data[i];
 			k++;
 		}
-		for (int j = 0; j < s2.data.length; j++) {
-			newData[k] = s2.data[j];
+		for (int j = 0; j < d2.data.length; j++) {
+			newData[k] = d2.data[j];
+			k++;
 		}
 		DoubleArraySequence das = new DoubleArraySequence(newData.length);
 		das.data = newData;
-		das.manyItems = s1.manyItems + s2.manyItems;
+		das.currentIndex = k;
+		das.manyItems = d1.manyItems + d2.manyItems;
 		return das;
 	}
 
@@ -319,7 +327,11 @@ public class DoubleArraySequence implements Cloneable {
 	 *                                  so getCurrent may not be called.
 	 **/
 	public double getCurrent() {
+		if (data.length <= currentIndex) {
+			throw new IllegalStateException();
+		}
 		return data[currentIndex];
+		
 	}
 
 	/**
@@ -351,6 +363,8 @@ public class DoubleArraySequence implements Cloneable {
 			for (int i = currentIndex; i < data.length - 1; i++) {
 				data[i] = data[i + 1];
 			}
+		} else {
+			throw new IllegalStateException();
 		}
 		manyItems--;
 	}
@@ -394,9 +408,13 @@ public class DoubleArraySequence implements Cloneable {
 		for (int i = 0; i < manyItems; i++) {
 			newData[i] = data[i];
 		}
+		data = newData;
 	}
 
 	public int getCurrentIndex() {
+		if (currentIndex > data.length) {
+			throw new IllegalStateException();
+		}
 		return currentIndex;
 	}
 

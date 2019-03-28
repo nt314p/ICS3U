@@ -2,12 +2,15 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Living Room" key="selection"/>
+		<item value="score = " key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="score = "/>
+			<item value="score ="/>
+			<item value="score"/>
 			<item value="Room 1"/>
 			<item value="Room 2"/>
 			<item value="deductPairPlus()"/>
@@ -20,9 +23,6 @@
 			<item value="// finding time to mile two to finish"/>
 			<item value="// finding mile one to mile two time"/>
 			<item value="S3);"/>
-			<item value="S2);"/>
-			<item value="S1);"/>
-			<item value="reader"/>
 		</list>
 		<list key="replacehistory">
 			<item value="Living Room"/>

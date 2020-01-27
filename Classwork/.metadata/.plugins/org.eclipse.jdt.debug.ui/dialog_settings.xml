@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item value="118" key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth2"/>
-	<item value="1" key="org.eclipse.jdt.debug.ui.jre_preference_page_context.sortColumn"/>
-	<item value="314" key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth1"/>
-	<item value="206" key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth0"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth2" value="118"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.sortColumn" value="1"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth1" value="314"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth0" value="206"/>
 	<section name="conditionHistory">
 	</section>
 	<section name="org.eclipse.jdt.internal.debug.ui.ExpressionInformationControlCreator$ExpressionInformationControl">
-		<item value="500" key="SashWeightTree"/>
-		<item value="500" key="SashWeightDetails"/>
-		<item value="1020" key="WIDTH"/>
-		<item value="320" key="HEIGHT"/>
+		<item key="SashWeightTree" value="500"/>
+		<item key="SashWeightDetails" value="500"/>
+		<item key="WIDTH" value="1020"/>
+		<item key="HEIGHT" value="320"/>
+	</section>
+	<section name="expressionHistory">
 	</section>
 </section>
